@@ -11,8 +11,8 @@ import matplotlib.pyplot as plt
 import numpy as np
 from datetime import datetime
 from scipy import stats
-from scipy.fft import fft, fftfreq
-from sklearn import preprocessing
+#from scipy.fft import fft, fftfreq
+#from sklearn import preprocessing
 from scipy import signal
 from scipy.signal import find_peaks
 #mydata=ndata[0:2000]

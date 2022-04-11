@@ -11,7 +11,7 @@ import time
 #import msvcrt
 import numpy as np
 from datetime import datetime
-from sklearn import preprocessing
+#from sklearn import preprocessing
 from scipy import signal
 from scipy.signal import find_peaks
 
@@ -44,7 +44,7 @@ def getRP(ndata):
 #    plt.plot(sdata)
 #    plt.plot(filtered)
 #    plt.show()
-    print("{}-{}:RSR={}/min".format(start,end,len(peaks)*K))
+#    print("{}-{}:RSR={}/min".format(start,end,len(peaks)*K))
     return len(peaks)*K
 
 
@@ -69,11 +69,12 @@ while (1):
         result=256*x1+x2
         ndata[startIdx]=result
         startIdx=startIdx+1
+        if (startIdx < N) & ((startIdx %500)==0):
+           print(startIdx)	
 
 
     if (startIdx >N):
-        getRP(ndata)
-    
-    ndata=np.roll(ndata,-INC)
-    startIdx=startIdx-INC
+        print("{},{},{}".format(getRP(ndata),max(ndata),min(ndata)))
+        ndata=np.roll(ndata,-INC)
+        startIdx=startIdx-INC
     
