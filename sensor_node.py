@@ -74,7 +74,13 @@ while (1):
 
 
     if (startIdx >N):
-        print("{},{},{}".format(getRP(ndata),max(ndata),min(ndata)))
+        MX=max(ndata)
+        MN=min(ndata)
+        if (MX-MN) < 10:
+            RP=0
+        else:
+            RP=getRP(ndata)
+        print("{},{},{}".format(RP,MX,MN))
         ndata=np.roll(ndata,-INC)
         startIdx=startIdx-INC
     
